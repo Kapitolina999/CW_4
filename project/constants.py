@@ -1,0 +1,2 @@
+JWT_SECRET = '154poj78rfh'
+JWT_ALGO = 'HS256'

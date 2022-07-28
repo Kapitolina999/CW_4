@@ -1,0 +1,57 @@
+POST http://127.0.0.1:5000/auth/register
+Accept: application/json
+Content-Type: application/json
+
+{
+  "email": "non@no",
+  "password": "pony"
+}
+###
+
+POST http://127.0.0.1:5000/auth/login
+Accept: application/json
+Content-Type: application/json
+
+{
+  "email": "non@no",
+  "password": "dog"
+}
+
+###
+PUT http://127.0.0.1:5000/auth/login
+Accept: application/json
+Content-Type: application/json
+
+{
+  "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Im5vQCIsImV4cCI6MTY1OTAwMzEwNX0.F2fa1fZUcK4LjdKhcmA0EBKf2hmBB9xZ29Gz2j3hO2U",
+  "refresh_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Im5vQCIsImV4cCI6MTY3MDIzNDIwNX0.SmqUnxv-HIkiLWI1fPzXOX78wbxd0f2BWv06T9-dROg"
+}
+
+###
+GET http://127.0.0.1:5000/user
+Accept: application/json
+Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Im5vbkBubyIsImV4cCI6MTY1OTAxMTM0MH0.RC8NIbqw9etg_jwElwny_6sjQQsjS6Ms5Ny8IhHIIdI
+
+
+
+###
+PATCH http://127.0.0.1:5000/user/
+Accept: application/json
+Content-Type: application/json
+Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Im5vbkBubyIsImV4cCI6MTY1OTAxMTM0MH0.RC8NIbqw9etg_jwElwny_6sjQQsjS6Ms5Ny8IhHIIdI
+
+{"favourite_genre_id": [1, 2]}
+
+###
+PUT http://127.0.0.1:5000/user/password
+Accept: application/json
+Content-Type: application/json
+Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Im5vbkBubyIsImV4cCI6MTY1OTAwNjkwOX0.UtxC_wwuPuln1DRXt_tMc07lrX5jnQQaLN8sSQuZMpk
+
+{
+   "password_1": "pony",
+   "password_2": "dog"
+}
+
+###
+

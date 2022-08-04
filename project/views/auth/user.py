@@ -24,7 +24,7 @@ class UserView(Resource):
 
 
 @user_ns.route('/password')
-class UserView(Resource):
+class UserPasswordView(Resource):
     @access_user
     def put(self, uid):
         data = request.json

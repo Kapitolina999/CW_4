@@ -9,34 +9,22 @@ class MovieDAO:
         self.session = session
 
     def get(self, page=None, mid=None, did=None, gid=None, year=None, status=None):
+        query = self.session.query(Movie)
 
+        if mid:
+            return query.get(mid)
+        if did:
+            query = query.filter(Movie.director_id == did)
+        if gid:
+            query = query.filter(Movie.genre_id == gid)
+        if year:
+            query = query.filter(Movie.year == year)
+        if status == 'new':
+            query = query.order_by(desc(Movie.year))
         if page:
-
             limit = config.ITEMS_PER_PAGE
             offset = limit * (int(page) - 1)
+            query = query.limit(limit).offset(offset)
 
-            if did:
-                return self.session.query(Movie).filter(Movie.director_id == did).limit(limit).offset(offset).all()
-            if gid:
-                return self.session.query(Movie).filter(Movie.genre_id == gid).limit(limit).offset(offset).all()
-            if year:
-                return self.session.query(Movie).filter(Movie.year == year).limit(limit).offset(offset).all()
-            if status == 'new':
-                return self.session.query(Movie).order_by(desc(Movie.created)).limit(limit).offset(offset).all()
+        return query.all()
 
-            return self.session.query(Movie).limit(limit).offset(offset).all()
-
-        else:
-
-            if mid:
-                return self.session.query(Movie).get(mid)
-            if did:
-                return self.session.query(Movie).filter(Movie.director_id == did).all()
-            if gid:
-                return self.session.query(Movie).filter(Movie.genre_id == gid).all()
-            if year:
-                return self.session.query(Movie).filter(Movie.year == year).all()
-            if status == 'new':
-                return self.session.query(Movie).order_by(desc(Movie.created)).all()
-
-            return self.session.query(Movie).all()

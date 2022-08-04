@@ -1,5 +1,5 @@
 from marshmallow import Schema, fields
-from sqlalchemy import Column, String, Integer, Float, ForeignKey, DateTime, func
+from sqlalchemy import Column, String, Integer, Float, ForeignKey, DateTime, func, Table
 from sqlalchemy.orm import relationship
 
 from project.setup.db import db
@@ -33,6 +33,13 @@ class Movie(db.Model):
     director = relationship('Director')
 
 
+# Создаем таблицу для реализации отношения многие-ко-многим для сохранения избранных фильмов пользователей
+users_movies = Table('users_movies',
+                     Column('user_id', Integer, ForeignKey('users.id')),
+                     Column('movie_id', Integer, ForeignKey('movies.id'))
+                     )
+
+
 class User(db.Model):
     __tablename__ = 'users'
     id = Column(Integer, primary_key=True, autoincrement=True)
@@ -42,6 +49,8 @@ class User(db.Model):
     surname = Column(String(255))
     favourite_genre_id = Column(Integer, ForeignKey(f'{Genre.__tablename__}.id'))
     favourite_genre = relationship('Genre')
+    favourite_movie_id = Column(Integer, ForeignKey(f'{Movie.__tablename__}.id'))
+    favourite_movie = relationship('Movie', secondary=users_movies)
 
 
 class GenreSchema(Schema):
@@ -68,5 +77,4 @@ class MovieSchema(Schema):
 class UserSchema(Schema):
     name = fields.Str()
     surname = fields.Str()
-    # favourite_genre_id = fields.Int()
     favourite_genre = fields.Pluck(GenreSchema, 'name', many=True)

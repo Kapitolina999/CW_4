@@ -18,17 +18,17 @@ class Director(db.Model):
 
 
 # Создаем таблицу для реализации отношения многие-ко-многим для сохранения избранных фильмов пользователей
-# users_movies = db.Table('users_movies',
-#                         db.Column('user_id', db.Integer, db.ForeignKey('users.id')),
-#                         db.Column('movie_id', db.Integer, db.ForeignKey('movies.id')),
-#                         extend_existing=True)
+users_movies = db.Table('users_movies',
+                        db.Column('user_id', db.Integer, db.ForeignKey('users.id')),
+                        db.Column('movie_id', db.Integer, db.ForeignKey('movies.id')),
+                        extend_existing=True)
 
 # Создаем таблицу для реализации отношения многие-ко-многим для сохранения избранных фильмов пользователей
-class UsersMovies(db.Model):
-    __tablename__ = 'users_movies'
-    id = Column(Integer, primary_key=True)
-    user_id = Column(Integer, ForeignKey('users.id'))
-    movie_id = Column(Integer, ForeignKey('movies.id'))
+# class UsersMovies(db.Model):
+#     __tablename__ = 'users_movies'
+#     id = Column(Integer, primary_key=True)
+#     user_id = Column(Integer, ForeignKey('users.id'))
+#     movie_id = Column(Integer, ForeignKey('movies.id'))
 
 
 class Movie(db.Model):

@@ -23,14 +23,14 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Im5vQCIsImV4cCI6MTY1OTAwMzEwNX0.F2fa1fZUcK4LjdKhcmA0EBKf2hmBB9xZ29Gz2j3hO2U",
-  "refresh_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Im5vQCIsImV4cCI6MTY3MDIzNDIwNX0.SmqUnxv-HIkiLWI1fPzXOX78wbxd0f2BWv06T9-dROg"
+  "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Im5vbkBubyIsImV4cCI6MTY1OTgyMjM2NX0._75KnekiQppoV1yWEkxLY6Y7t3begFjWmvSC3rttOr0",
+  "refresh_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Im5vbkBubyIsImV4cCI6MTY3MTA1MzQ2NX0.uj4aQonKIVOsfVj40vMQKD2bmPxrL_6mOHsx6i7JASs"
 }
 
 ###
 GET http://127.0.0.1:5000/user
 Accept: application/json
-Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Im5vbkBubyIsImV4cCI6MTY1OTgxNzU0MH0.ZMe5ZFDlbYsHmGo87WdokysiPlk3RMOT9jC9-B5urmw
+Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Im5vbkBubyIsImV4cCI6MTY1OTgyMzU4MX0.AJmeD1Kwd7jsuLTb9H-J5C4e0LwrweKxle8s5XiSa4c
 
 
 
@@ -39,7 +39,7 @@ Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Im5vbkBubyIsImV4
 PATCH http://127.0.0.1:5000/user/
 Accept: application/json
 Content-Type: application/json
-Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Im5vbkBubyIsImV4cCI6MTY1OTgxNzU0MH0.ZMe5ZFDlbYsHmGo87WdokysiPlk3RMOT9jC9-B5urmw
+Authorization: yJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Im5vbkBubyIsImV4cCI6MTY1OTgyMTE1OH0.RD9uz6R7xgqnLRTnR0jWwkIV4dhNLY9lsfu_voi_iWM
 
 {"name": "Фекла"}
 
@@ -55,18 +55,17 @@ Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Im5vbkBubyIsImV4
 }
 
 ###
-POST http://127.0.0.1:5000/favourites/movies/18
+POST http://127.0.0.1:5000/favourites/movies/20
 Accept: application/json
 Content-Type: application/json
-Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Im5vbkBubyIsImV4cCI6MTY1OTgxNzU0MH0.ZMe5ZFDlbYsHmGo87WdokysiPlk3RMOT9jC9-B5urmw
+Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Im5vbkBubyIsImV4cCI6MTY1OTgyMzU4MX0.AJmeD1Kwd7jsuLTb9H-J5C4e0LwrweKxle8s5XiSa4c
 
 
 ###
 
-DELETE http://127.0.0.1:5000/favourites/movies/10
+DELETE http://127.0.0.1:5000/favourites/movies/1
 Accept: application/json
 Content-Type: application/json
-Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Im5vbkBubyIsImV4cCI6MTY1OTgxNzU0MH0.ZMe5ZFDlbYsHmGo87WdokysiPlk3RMOT9jC9-B5urmw
-
+Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Im5vbkBubyIsImV4cCI6MTY1OTgyMzU4MX0.AJmeD1Kwd7jsuLTb9H-J5C4e0LwrweKxle8s5XiSa4c
 
 ###

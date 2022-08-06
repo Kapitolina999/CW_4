@@ -38,6 +38,7 @@ class UserService:
         if 'favourite_genre_id' in data.keys():
             user.favourite_genre_id = data['favourite_genre_id']  # Как передать жанр, а не id жанра?
 
+
         self.dao.update(user)
 
     def password_update(self, uid, password_1, password_2):

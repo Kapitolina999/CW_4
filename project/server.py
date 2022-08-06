@@ -7,6 +7,7 @@ from project.setup.db import db
 from project.views.auth.auth import auth_ns
 from project.views.auth.user import user_ns
 from project.views.main.directors import director_ns
+from project.views.main.favourites_movies import favourites_movies_ns
 from project.views.main.genres import genre_ns
 from project.views.main.movies import movie_ns
 
@@ -29,6 +30,7 @@ def create_app(config_obj):
     api.add_namespace(movie_ns)
     api.add_namespace(genre_ns)
     api.add_namespace(director_ns)
+    api.add_namespace(favourites_movies_ns)
 
     app.register_error_handler(BaseServiceError, base_service_error_handler)
 

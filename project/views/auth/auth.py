@@ -28,7 +28,7 @@ class AuthView(Resource):
             user_service.create(data)
             return "", 201
         else:
-            return f'Пользователь с email {email} уже зарегистрирован', 409  # Какой код здесь вернуть?
+            return f'Пользователь с email {email} уже зарегистрирован', 400  # Какой код здесь вернуть?
 
 
 @auth_ns.route('/login')

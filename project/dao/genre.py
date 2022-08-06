@@ -7,13 +7,11 @@ class GenreDAO:
         self.session = session
 
     def get(self, page=None, gid=None):
-
+        query = self.session.query(Genre)
+        if gid:
+            return query.get(gid)
         if page:
             limit = config.ITEMS_PER_PAGE
             offset = limit * (int(page) - 1)
-            return self.session.query(Genre).limit(limit).offset(offset).all()
-
-        else:
-            if gid:
-                return self.session.query(Genre).get(gid)
-            return self.session.query(Genre).all()
+            query = query.limit(limit).offset(offset)
+        return query.all()

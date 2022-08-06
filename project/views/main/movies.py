@@ -3,7 +3,6 @@ from flask_restx import Resource, Namespace
 
 from project.container import movie_service
 from project.dao.models import MovieSchema
-from project.setup.api.models import movie
 
 movie_ns = Namespace('movies')
 

@@ -4,7 +4,7 @@ Content-Type: application/json
 
 {
   "email": "non@no",
-  "password": "pony"
+  "password": "dog"
 }
 ###
 
@@ -30,7 +30,8 @@ Content-Type: application/json
 ###
 GET http://127.0.0.1:5000/user
 Accept: application/json
-Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Im5vbkBubyIsImV4cCI6MTY1OTAxMTM0MH0.RC8NIbqw9etg_jwElwny_6sjQQsjS6Ms5Ny8IhHIIdI
+Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Im5vbkBubyIsImV4cCI6MTY1OTgxNzU0MH0.ZMe5ZFDlbYsHmGo87WdokysiPlk3RMOT9jC9-B5urmw
+
 
 
 
@@ -38,9 +39,9 @@ Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Im5vbkBubyIsImV4
 PATCH http://127.0.0.1:5000/user/
 Accept: application/json
 Content-Type: application/json
-Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Im5vbkBubyIsImV4cCI6MTY1OTAxMTM0MH0.RC8NIbqw9etg_jwElwny_6sjQQsjS6Ms5Ny8IhHIIdI
+Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Im5vbkBubyIsImV4cCI6MTY1OTgxNzU0MH0.ZMe5ZFDlbYsHmGo87WdokysiPlk3RMOT9jC9-B5urmw
 
-{"favourite_genre_id": [1, 2]}
+{"name": "Фекла"}
 
 ###
 PUT http://127.0.0.1:5000/user/password
@@ -54,4 +55,18 @@ Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Im5vbkBubyIsImV4
 }
 
 ###
+POST http://127.0.0.1:5000/favourites/movies/18
+Accept: application/json
+Content-Type: application/json
+Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Im5vbkBubyIsImV4cCI6MTY1OTgxNzU0MH0.ZMe5ZFDlbYsHmGo87WdokysiPlk3RMOT9jC9-B5urmw
 
+
+###
+
+DELETE http://127.0.0.1:5000/favourites/movies/10
+Accept: application/json
+Content-Type: application/json
+Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Im5vbkBubyIsImV4cCI6MTY1OTgxNzU0MH0.ZMe5ZFDlbYsHmGo87WdokysiPlk3RMOT9jC9-B5urmw
+
+
+###

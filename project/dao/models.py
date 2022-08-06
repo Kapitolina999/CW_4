@@ -17,6 +17,20 @@ class Director(db.Model):
     name = Column(String(100), unique=True, nullable=False)
 
 
+# Создаем таблицу для реализации отношения многие-ко-многим для сохранения избранных фильмов пользователей
+# users_movies = db.Table('users_movies',
+#                         db.Column('user_id', db.Integer, db.ForeignKey('users.id')),
+#                         db.Column('movie_id', db.Integer, db.ForeignKey('movies.id')),
+#                         extend_existing=True)
+
+# Создаем таблицу для реализации отношения многие-ко-многим для сохранения избранных фильмов пользователей
+class UsersMovies(db.Model):
+    __tablename__ = 'users_movies'
+    id = Column(Integer, primary_key=True)
+    user_id = Column(Integer, ForeignKey('users.id'))
+    movie_id = Column(Integer, ForeignKey('movies.id'))
+
+
 class Movie(db.Model):
     __tablename__ = 'movies'
     id = Column(Integer, primary_key=True, autoincrement=True)
@@ -31,13 +45,7 @@ class Movie(db.Model):
     genre = relationship('Genre')
     director_id = Column(Integer, ForeignKey(f'{Director.__tablename__}.id'), nullable=False)
     director = relationship('Director')
-
-
-# Создаем таблицу для реализации отношения многие-ко-многим для сохранения избранных фильмов пользователей
-users_movies = Table('users_movies',
-                     Column('user_id', Integer, ForeignKey('users.id')),
-                     Column('movie_id', Integer, ForeignKey('movies.id'))
-                     )
+    users = relationship('User', secondary='users_movies', backref='movie')
 
 
 class User(db.Model):
@@ -49,8 +57,7 @@ class User(db.Model):
     surname = Column(String(255))
     favourite_genre_id = Column(Integer, ForeignKey(f'{Genre.__tablename__}.id'))
     favourite_genre = relationship('Genre')
-    favourite_movie_id = Column(Integer, ForeignKey(f'{Movie.__tablename__}.id'))
-    favourite_movie = relationship('Movie', secondary=users_movies)
+    favourite_movie = relationship('Movie', secondary='users_movies', backref='user')
 
 
 class GenreSchema(Schema):
@@ -77,4 +84,7 @@ class MovieSchema(Schema):
 class UserSchema(Schema):
     name = fields.Str()
     surname = fields.Str()
-    favourite_genre = fields.Pluck(GenreSchema, 'name', many=True)
+    email = fields.Str()
+    favourite_genre = fields.Pluck(GenreSchema, 'name')
+    favourite_movie = fields.Pluck(MovieSchema, 'title', many=True)
+

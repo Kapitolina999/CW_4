@@ -1,11 +1,10 @@
-import base64
 import os
 from pathlib import Path
 from typing import Type
 
 import dotenv
 
-BASE_DIR = Path(__file__).resolve().parent.parent  # Что это значит? О каком файле речь?
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 class BaseConfig:
@@ -22,9 +21,6 @@ class BaseConfig:
     TOKEN_EXPIRE_MINUTES = 15
     TOKEN_EXPIRE_DAYS = 130
 
-
-    # PWD_HASH_SALT = base64.b64decode("salt")
-    # PWD_HASH_ITERATIONS = 100_000
     PWD_HASH_SALT = b'secret here'
     PWD_HASH_ITERATIONS = 100_000
 
@@ -34,6 +30,7 @@ class BaseConfig:
 
 
 class TestingConfig(BaseConfig):
+    ITEMS_PER_PAGE = 1
     TESTING = True
     SQLALCHEMY_DATABASE_URI = "sqlite:///:memory:"
 
@@ -54,7 +51,7 @@ class ConfigFactory:
     flask_env = os.getenv('FLASK_ENV')  # то же самое, что и os.environ.get()?
 
     @classmethod
-    def get_config(cls) -> Type[BaseConfig]:  # Что такое cls?
+    def get_config(cls) -> Type[BaseConfig]:
         if cls.flask_env == 'development':
             return DevelopmentConfig
         elif cls.flask_env == 'production':

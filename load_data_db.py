@@ -15,7 +15,6 @@ def load_data_db(model):
     """
     with open('data.json', encoding='utf-8') as file:
         data = json.load(file)
-
     if model is Movie:
         data = data.get('movies')
     elif model is Genre:

@@ -38,3 +38,4 @@ class UserPasswordView(Resource):
 
         user_service.password_update(uid, password_1, password_2)
         return '', 204
+

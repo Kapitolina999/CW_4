@@ -43,7 +43,7 @@ class DevelopmentConfig(BaseConfig):
 
 class ProductionConfig(BaseConfig):
     DEBUG = False
-    # TODO: дополнить конфиг
+    SQLALCHEMY_DATABASE_URI = "postgresql://db_user:db_user_password@pg/app_db"
 
 
 class ConfigFactory:

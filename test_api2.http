@@ -1,0 +1,78 @@
+POST http://51.250.89.17:81/auth/register
+Accept: application/json
+Content-Type: application/json
+
+{
+  "email": "non2@no",
+  "password": "dog"
+}
+###
+POST http://51.250.89.17/auth/register
+Accept: application/json
+Content-Type: application/json
+
+{
+  "email": "non2@no",
+  "password": "dog"
+}
+###
+POST http://51.250.89.17:81/auth/login
+Accept: application/json
+Content-Type: application/json
+
+{
+  "email": "non2@no",
+  "password": "dog"
+}
+
+###
+PUT http://51.250.89.17:81/auth/login
+Accept: application/json
+Content-Type: application/json
+
+{
+  "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Im5vbkBubyIsImV4cCI6MTY2MjI3NTA0N30.iOAziH-1J9tmLmilOBTuTFMHLG2IgVxJ2SIitWRdDSM",
+  "refresh_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Im5vbkBubyIsImV4cCI6MTY3MzUwNjE0N30.65m512w6l2hMwNA34oidkV6grKe7rpTYbyzzmTZH3xE"
+}
+
+
+###
+GET http://51.250.89.17:81/user
+Accept: application/json
+Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Im5vbjJAbm8iLCJleHAiOjE2NjIyNzU5MTl9.YmG7FIqcRRXAKwGTxeUu9aTQtJixXb6BgeXzeyJUJL4
+
+
+###
+PATCH http://51.250.89.17:81/user/
+Accept: application/json
+Content-Type: application/json
+Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Im5vbjJAbm8iLCJleHAiOjE2NjIyNzU5MTl9.YmG7FIqcRRXAKwGTxeUu9aTQtJixXb6BgeXzeyJUJL4
+
+{"name": "Ivan"}
+
+###
+PUT http://51.250.89.17:81/user/password
+Accept: application/json
+Content-Type: application/json
+Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Im5vbjJAbm8iLCJleHAiOjE2NjIyNzU5MTl9.YmG7FIqcRRXAKwGTxeUu9aTQtJixXb6BgeXzeyJUJL4
+
+{
+   "password_1": "pony",
+   "password_2": "dog"
+}
+
+###
+POST http://51.250.89.17:81/favourites/movies/9
+Accept: application/json
+Content-Type: application/json
+Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Im5vbjJAbm8iLCJleHAiOjE2NjIyNzU5MTl9.YmG7FIqcRRXAKwGTxeUu9aTQtJixXb6BgeXzeyJUJL4
+
+
+###
+
+DELETE http://51.250.89.17:81/favourites/movies/2
+Accept: application/json
+Content-Type: application/json
+Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Im5vbjJAbm8iLCJleHAiOjE2NjIyNzU5MTl9.YmG7FIqcRRXAKwGTxeUu9aTQtJixXb6BgeXzeyJUJL4
+
+###

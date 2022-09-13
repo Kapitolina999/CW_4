@@ -4,30 +4,6 @@ services:
   api:
     build:
       context: .
+    image: kapitolina/hw_26:flask-app
     ports:
-      - 8000:80
-    depends_on:
-      migrations:
-        condition: service_completed_successfully
-  migrations:
-    build:
-      context: .
-    depends_on:
-      postgres:
-        condition: service_healthy
-    command: flask db upgrade
-  postgres:
-    image: postgres:latest
-    environment:
-      POSTGRES_USER: db_user
-      POSTGRES_PASSWORD: db_user_password
-      POSTGRES_DB: app_db
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U db_user"]
-      interval: 5s
-      timeout: 5s
-      retries: 5
-    volumes:
-      - ./postgres_data:/var/lib/postgresql/data
-
-
+      - 80:80

@@ -43,12 +43,11 @@ class DevelopmentConfig(BaseConfig):
 
 class ProductionConfig(BaseConfig):
     DEBUG = False
-    SQLALCHEMY_DATABASE_URI = "postgresql://db_user:db_user_password@pg/app_db"
 
 
 class ConfigFactory:
     dotenv.load_dotenv(override=True)
-    flask_env = os.getenv('FLASK_ENV')  # то же самое, что и os.environ.get()?
+    flask_env = os.getenv('FLASK_ENV', 'development')  # то же самое, что и os.environ.get()?
 
     @classmethod
     def get_config(cls) -> Type[BaseConfig]:
